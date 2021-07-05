@@ -11,6 +11,8 @@ XX
 ## Training and testing datasets
 We selected 996 protein families from Pfam (https://pfam.xfam.org/), focusing on protein families within the plant and animal kingdom. We extracted accompanying sequences from Pfam's underlying sequence database using the following tables: pfama_reg_full_significant and pfamseq. A third table (pfamnn) was created that contains the 996 protein families. MySQL scripts to generate the pfamnn table and to extract sequences are located in Src/MySQL. 
 
-The total training dataset consisted of 7,385,028 sequences, covering the entire tree of life. Sequences with a length < 1234 amino acids were kept.
+All extracted sequences were preprocessed by retaining unique sequences and appending labels in case when multiple labels per sequence were present. Sequences with a length < 1234 amino acids were kept (source code: "Src/Preprocessing/select-sequences-labels", extracted sequences: "Data/extracted-pfam-total-data/aa-sequences-crop.npz" and corresponding labels: "Data/extracted-pfam-total-data/pfam-labels-crop.npz"). These sequences are subdivided into batches of +/- 1 milion sequences (source code: "Src/Preprocessing/divide-pfam-data-batches"). Sequences with multiple labels were not used for training. 
+
+The total training dataset consisted of 7,385,028 sequences, covering the entire tree of life. 
 
 ## Model architecture
