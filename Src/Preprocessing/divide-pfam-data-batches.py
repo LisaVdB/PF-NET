@@ -14,7 +14,7 @@ pfam_labels = pfam_labels_file['arr_0']
 
 chunk_size = 1000000
 
-batches_path = '../../Data/pfam-total-data/extracted-pfam-total-data/extracted-pfam-data-batches/'
+batches_path = '../../Data/extracted-pfam-total-data/extracted-pfam-data-batches/'
 batch_num = 1
 for batch in range(0, len(aa_sequences), chunk_size):
     
