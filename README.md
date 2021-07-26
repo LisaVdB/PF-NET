@@ -22,5 +22,5 @@ The total training dataset consisted of 7,385,028 sequences, covering the entire
 ## Model architecture
 ![Figure1_NNdesign_invert](https://user-images.githubusercontent.com/63100166/124564092-fedb7300-de40-11eb-8c1d-d022e65fd799.png)
 
-The source code for generating training, validation, and testing datasets, for the model, for training, testing, and predicting can be found in "Scr/Model/".
+The source code for generating training, validation, and testing datasets (save-train-val-test.py), for the model (model.py and loss.py), for training (train.py), testing (predict.py and test-predict.py), and predicting (validation-predict.py) can be found in "Scr/Model/".
 
