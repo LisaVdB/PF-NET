@@ -15,10 +15,15 @@ def create_model(filters = 1):
     sequence_input = Input(shape=(1234,5))
 
     # Convolutional Layer
-    output = Conv1D(filters,kernel_size=7,padding="valid",activation=None, use_bias=None, kernel_regularizer=l2(5e-4))(sequence_input)
+    # output = Conv1D(filters,kernel_size=7,padding="valid",activation="relu")(sequence_input)             # kernel_size: 5 - 15, try to change number of filters (kernel 26 to 7, filter 320 to 160)
+    # output = MaxPooling1D(pool_size=14, strides=14)(output)                                           # maxpooling: 5 - 15
+    # output = Dropout(0.3)(output)
+
+
+    output = Conv1D(filters,kernel_size=7,padding="valid",activation=None, use_bias=None, kernel_regularizer=l2(5e-4))(sequence_input) # kernel_size: 5 - 15, try to change number of filters (kernel 26 to 7, filter 320 to 160)
     output = BatchNormalization()(output)
     output = relu(output)
-    output = MaxPooling1D(pool_size=14, strides = 14)(output)
+    output = MaxPooling1D(pool_size=14, strides = 14)(output)                                           # maxpooling: 5 - 15
     output = Dropout(0.2)(output)
 
 
@@ -34,12 +39,12 @@ def create_model(filters = 1):
 
     #Bi-LSTM Layer
     output = Bidirectional(LSTM(filters,return_sequences=True, kernel_regularizer=l2(1e-6)))(output)
-    output = Dropout(0.5)(output)
+    output = Dropout(0.5)(output)                                                                     # optimize
 
     flat_output = Flatten()(output)
 
     #FC Layer
-    FC_output = Dense(1024, kernel_regularizer=l2(0.001))(flat_output)
+    FC_output = Dense(1024, kernel_regularizer=l2(0.001))(flat_output)                                                               # optimize
     FC_output = Activation('relu')(FC_output)
 
     #Output Layer

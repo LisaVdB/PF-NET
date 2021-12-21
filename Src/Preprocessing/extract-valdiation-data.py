@@ -9,7 +9,7 @@ from keras.preprocessing.sequence import pad_sequences
 global count
 
 
-data = list(SeqIO.parse("D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/rice_v7_all.pep", "fasta"))
+data = list(SeqIO.parse("D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/Yeast_S288C_orf_trans_R64-3-1_20210421.fasta", "fasta"))
 
 val_aa_sequences = []
 val_labels = []
@@ -97,14 +97,14 @@ sel_val_seq, sel_val_label, brok_val_seq, brok_val_label, count = \
 val_aa_seq = sel_val_seq + brok_val_seq
 val_lab = sel_val_label + brok_val_label
 
-np.savez_compressed('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-amino-acid-sequences-rice.npz', val_aa_seq)
+np.savez_compressed('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-amino-acid-sequences-yeast.npz', val_aa_seq)
 
 val_enc_sequences = encode(val_aa_seq)
 val_padded_sequences = pad_sequences(val_enc_sequences, padding='post')
 print("Padding done!!!")
 val_padded_sequences = val_padded_sequences.astype('int8')
 
-np.savez_compressed('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-encoded-sequences-rice.npz', val_padded_sequences)
+np.savez_compressed('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-encoded-sequences-yeast.npz', val_padded_sequences)
 
-np.savez_compressed('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-labels-rice.npz', val_lab)
-np.savetxt('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-labels-rice.txt', val_lab, fmt='%s')
+np.savez_compressed('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-labels-yeast.npz', val_lab)
+np.savetxt('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-labels-yeast.txt', val_lab, fmt='%s')

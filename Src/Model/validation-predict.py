@@ -8,7 +8,7 @@ from model import create_model
 def main(pfam_labels, integer_labels):
     
     #load sequences and labels
-    val_sequences_file = np.load('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-encoded-sequences-sorghum.npz')
+    val_sequences_file = np.load('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-encoded-sequences-yeast.npz')
     val_sequences = val_sequences_file['arr_0']
     val_pfam_labels = []
 
@@ -30,8 +30,8 @@ def main(pfam_labels, integer_labels):
     check if model weights are saved and load weights
     load latest weights
     '''
-    
-    model.load_weights('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/model-results/pfnet.12-0.21.hdf5')
+    model.load_weights('C:/Users/lisav/Downloads/tbinet.12-0.21_dinesh.hdf5')
+    #model.load_weights('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/model-results/pfnet.12-0.21.hdf5')
         
     print('\x1b[2K\tModel Summary')
     model.summary()
@@ -40,17 +40,17 @@ def main(pfam_labels, integer_labels):
     predictions = np.argmax(predictions, axis = 1)
 
     #save predictions
-    np.savetxt('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-predictions/integer-val-predictions-sorghum.txt', predictions, fmt = '%d')
+    np.savetxt('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-predictions/integer-val-predictions-yeast_b.txt', predictions, fmt = '%d')
 
     for index in range(len(predictions)):
         val_pfam_labels.append(pfam_labels[predictions[index]])
         
-    np.savetxt('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-predictions/pfam-testing-predictions-sorghum.txt', val_pfam_labels, fmt = '%s')
+    np.savetxt('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-predictions/pfam-testing-predictions-yeast_b.txt', val_pfam_labels, fmt = '%s')
     
 pfam_labels = []
 integer_labels = []
 
-with open('D:/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/pfam-integer-mapping.txt') as file:
+with open('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/pfam-integer-mapping.txt') as file:
     line = file.readline()
     line = file.readline()
     while line:
