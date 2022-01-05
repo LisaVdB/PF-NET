@@ -100,7 +100,7 @@ val_lab = sel_val_label + brok_val_label
 np.savez_compressed('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-amino-acid-sequences-yeast.npz', val_aa_seq)
 
 val_enc_sequences = encode(val_aa_seq)
-val_padded_sequences = pad_sequences(val_enc_sequences, padding='post')
+val_padded_sequences = pad_sequences(val_enc_sequences, maxlen = 1234, padding='post')
 print("Padding done!!!")
 val_padded_sequences = val_padded_sequences.astype('int8')
 
