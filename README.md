@@ -6,11 +6,11 @@ PF-NET is a multi-layer neural network, consisting of a CNN, attention layer, an
 Lisa Van den Broeck*, Dinesh Kiran Bhosale*, Michael Ashley, Ive De Smet, Anna Locke, Rosangela Sozzani. (2021) PF-NET: a neural network to predict the protein family of input sequences. _Bioinformatics_
 
 ## Requirements
-- Python
-- Numpy
+- Python 3.6.12
+- Numpy 1.19.2
 - Pickle
 - Sklearn 
-- Keras
+- Keras 2.3.1
 
 ## Training and testing datasets
 We selected 996 protein families from Pfam (https://pfam.xfam.org/), focusing on protein families within the plant and animal kingdom. We extracted accompanying sequences from Pfam's underlying sequence database using the following tables: pfama_reg_full_significant and pfamseq. A third table (pfamnn) was created that contains the 996 protein families. MySQL scripts to generate the pfamnn table and to extract sequences are located in Src/MySQL. 
