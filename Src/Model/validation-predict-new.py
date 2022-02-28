@@ -8,7 +8,7 @@ from checkingModel import create_checkingModel
 def main(pfam_labels, integer_labels):
     
     #load sequences and labels
-    val_sequences_file = np.load('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-encoded-sequences-yeast.npz')
+    val_sequences_file = np.load('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-encoded-sequences-wheat.npz')
     val_sequences = val_sequences_file['arr_0']
     val_pfam_labels = []
     top_labels = []
@@ -53,7 +53,7 @@ def main(pfam_labels, integer_labels):
         top_labels = []
         
     results = np.hstack([val_pfam_labels,top])
-    np.savetxt('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-predictions/pfam-testing-predictions-yeast.txt', results, fmt = '%s')
+    np.savetxt('D:/Google_Drive/Post-doc/Project_SoybeanPhospho/Orthologs/PF-NET/Data/validation/validation-predictions/pfam-testing-predictions-wheat-probs.txt', results, fmt = '%s')
 
 pfam_labels = []
 integer_labels = []
