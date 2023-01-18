@@ -3,7 +3,7 @@
 PF-NET is a multi-layer neural network, consisting of a CNN, attention layer, and a biLSTM, that accurately annotates sequences from 996 protein families. 
 
 ## Publication
-Lisa Van den Broeck*, Dinesh Kiran Bhosale*, Michael Ashley, Ive De Smet, Anna Locke, Rosangela Sozzani. (2021) PF-NET: a neural network to predict the protein family of input sequences. _Bioinformatics_
+Lisa Van den Broeck, Dinesh Kiran Bhosale, Michael Ashley, Ive De Smet, Anna Locke, Rosangela Sozzani. PF-NET: a neural network to predict the protein family of input sequences.
 
 ## Requirements
 - Python 3.6.12
