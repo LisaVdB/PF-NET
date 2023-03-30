@@ -10,7 +10,8 @@ Lisa Van den Broeck, Dinesh Kiran Bhosale, Michael Ashley, Ive De Smet, Anna Loc
 - Numpy 1.19.2
 - Pickle
 - Sklearn 
-- Keras 2.3.1
+- Tensorflow 2.3.1
+- Keras 2.4.0
 
 ## Training and testing datasets
 We selected 996 protein families from Pfam (https://pfam.xfam.org/), focusing on protein families within the plant and animal kingdom. We extracted accompanying sequences from Pfam's underlying sequence database using the following tables: pfama_reg_full_significant and pfamseq. A third table (pfamnn) was created that contains the 996 protein families. MySQL scripts to generate the pfamnn table and to extract sequences are located in Src/MySQL. 
