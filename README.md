@@ -7,7 +7,7 @@ Lisa Van den Broeck, Dinesh Kiran Bhosale, Michael Ashley, Ive De Smet, Anna Loc
 
 ## Requirements
 - Python 3.6.12
-- Numpy 1.19.2
+- Numpy
 - Pickle
 - Sklearn 
 - Tensorflow 2.3.1
